@@ -1,0 +1,30 @@
+<div class="padre">
+    <div class="lista">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputState">Id bloque</label>
+                <select id="inputState" class="form-control" >
+                    <option selected>Seleccionar</option>
+                    <option  *ngFor="let option of Bloque">{{option.Id}}</option>
+                </select>
+            </div>
+        </div>
+        <table class="table">
+        <thead class="thead-dark" >
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Facultad</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  *ngFor="let option of Bloque">
+            <td>{{option.Id}}</td>
+            <td>{{option.Nombre}}</td>
+            <td>{{option.Facultad}}</td>
+        </tr>
+        </tbody>
+        </table>
+    </div>
+  </div>
+  

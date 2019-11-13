@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'lista-laboratorio', component: ListaLaboratorioComponent},
   {path: 'lista-bloque', component: ListaBloqueComponent},
   {path: 'lista-facultad', component: ListaFacultadComponent},
-  {path: '*', redirectTo: ''}
+  {path: '*', redirectTo: 'bloque'}
 ];
 
 @NgModule({

@@ -2,15 +2,15 @@
 <div class="padre">
     <div class="cuadrito">
         <div class="botoncito">
-            <div class="form-group col-md-12">
+            <form [formGroup]="form" class="form-group col-md-12">
                 <h3>Crear bloque</h3>
                 <input formControlName="asign" type="text" class="form-control" id="inputAddress" placeholder="Nombre">
-            </div>
+            </form>
             <div class="form-group col-md-12">
                 <select id="inputState" class="form-control">
                   <option selected>Seleccionar facultad</option>
-                  <option>Facultad 1</option>
-                  <option>Facultad 2</option>
+                  <option value = "{{option.value}}" *ngFor = "let option of faculties">{{option.name}}</option>
+
                 </select>
             </div>
             <button type="submit" class="btn btn-primary boton boton">Guardar</button>

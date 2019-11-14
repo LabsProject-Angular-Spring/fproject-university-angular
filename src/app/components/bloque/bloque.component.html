@@ -4,15 +4,16 @@
         <div class="botoncito">
             <form [formGroup]="form" class="form-group col-md-12">
                 <h3>Crear bloque</h3>
-                <input formControlName="asign" type="text" class="form-control" id="inputAddress" placeholder="Nombre">
-            </form>
-            <div class="form-group col-md-12">
-                <select id="inputState" class="form-control">
-                  <option selected>Seleccionar facultad</option>
-                  <option value = "{{option.value}}" *ngFor = "let option of faculties">{{option.name}}</option>
+                <input formControlName="name" type="text" class="form-control" id="inputAddress" placeholder="Nombre">
+                    <div class="form-group col-md-12">
+                      <select formControlName="facultyid" class="form-control">
+                        <option selected>Seleccionar facultad</option>
+                        <option value="{{option.value}}" *ngFor="let option of faculties">{{option.name}}</option>
 
-                </select>
-            </div>
+                      </select>
+                    </div>
+            </form>
+
             <button type="submit" class="btn btn-primary boton boton">Guardar</button>
         </div>
     </div>

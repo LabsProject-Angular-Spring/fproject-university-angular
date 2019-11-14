@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ListFacultyService } from '../../services/list-faculty.service'
 import { DynamicFormBuilder, DynamicFormGroup } from 'ngx-dynamic-form-builder';
-import {Bloque}
+import {Bloque} from '../../models/bloque'
 @Component({
   selector: 'app-bloque',
   templateUrl: './bloque.component.html',
@@ -9,10 +9,14 @@ import {Bloque}
 })
 export class BloqueComponent implements OnInit {
   faculties;
-  public form: DynamicFormGroup<Soli>;
-  constructor(private listFacultyService: ListFacultyService) { }
+  public form: DynamicFormGroup<Bloque>;
+  
+  constructor(private fb: DynamicFormBuilder, private listFacultyService: ListFacultyService) { }
 
   ngOnInit() {
+    this.form = this.fb.group(Bloque, {
+      name: '', facultyid: ''
+    });
     this.listFacultyService.list().subscribe(res => {
       this.faculties = res;
     })

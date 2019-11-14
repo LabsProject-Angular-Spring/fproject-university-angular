@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ListFacultyService } from 'src/app/services/list-faculty.service';
 
 @Component({
   selector: 'app-lista-laboratorio',
@@ -6,31 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lista-laboratorio.component.scss']
 })
 export class ListaLaboratorioComponent implements OnInit {
-  Laboratorio=[
-    {
-      Id: '1',
-      Nombre: 'Física',
-      Bloque  : 'A'
-    },
-    {
-      Id: '2',
-      Nombre:'Software',
-      Bloque  : 'B'
-    },
-    {
-      Id: '3',
-      Nombre: 'Redes',
-      Bloque  : 'C'
-    },
-    {
-      Id: '4',
-      Nombre: 'Química',
-      Bloque  : 'D'
-    }
-  ]
-  constructor() { }
+  Laboratorio;
+  constructor(private listFacultyService: ListFacultyService) { }
 
   ngOnInit() {
+    this.listFacultyService.listLabs().subscribe(res => {
+      this.Laboratorio = res;
+    })
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ListFacultyService } from 'src/app/services/list-faculty.service';
 
 @Component({
   selector: 'app-lista-bloque',
@@ -6,31 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lista-bloque.component.scss']
 })
 export class ListaBloqueComponent implements OnInit {
-  Bloque=[
-    {
-      Id: '1',
-      Nombre: 'A',
-      Facultad: 'Ingeniería'
-    },
-    {
-      Id: '2',
-      Nombre: 'B',
-      Facultad: 'Derecho'
-    },
-    {
-      Id: '3',
-      Nombre: 'C',
-      Facultad: 'Contaduría'
-    },
-    {
-      Id: '4',
-      Nombre: 'D',
-      Facultad: 'Ciencias'
-    }
-  ]
-  constructor() { }
+  Bloque;
+  constructor(private listFacultyService: ListFacultyService) { }
 
   ngOnInit() {
+    this.listFacultyService.listBuilding().subscribe(res => {
+      this.Bloque = res;
+    })
   }
 
 }

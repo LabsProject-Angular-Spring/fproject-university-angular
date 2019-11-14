@@ -10,4 +10,10 @@ export class ListFacultyService {
   list = () => {
     return this.http.get("http://localhost:10010/faculty/list") // pETICIÓN GET
   }
+  listLabs = () => {
+    return this.http.get("http://localhost:10010/lab/list") // pETICIÓN GET
+  }
+  listBuilding = () => {
+    return this.http.get("http://localhost:10010/building/list") // pETICIÓN GET
+  }
 }

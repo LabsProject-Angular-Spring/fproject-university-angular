@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ListFacultyService } from '../../services/list-faculty.service'
 import { DynamicFormBuilder, DynamicFormGroup } from 'ngx-dynamic-form-builder';
-import {Bloque} from '../../models/bloque'
+import {Bloque} from '../../models/bloque';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-bloque',
   templateUrl: './bloque.component.html',
@@ -21,5 +22,14 @@ export class BloqueComponent implements OnInit {
       this.faculties = res;
     })
   }
-
+  save(){
+    this.listFacultyService.save(JSON.parse(JSON.stringify(this.form.object))).subscribe(res => {
+      if(res == 'Saved')
+      Swal.fire(
+        'Atención!',
+        'Creado con éxito!',
+        'success'
+      )
+    })
+  }
 }

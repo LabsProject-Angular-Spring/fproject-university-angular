@@ -16,4 +16,12 @@ export class ListFacultyService {
   listBuilding = () => {
     return this.http.get("http://localhost:10010/building/list") // pETICIÓN GET
   }
+
+  save = (model) => {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json');
+    return this.http.post("http://localhost:10010/building/add", model, { responseType: 'text'} )
+  }
+
+  
 }

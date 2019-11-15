@@ -8,13 +8,13 @@
                     <div class="form-group col-md-12">
                       <select formControlName="facultyid" class="form-control">
                         <option selected>Seleccionar facultad</option>
-                        <option value="{{option.value}}" *ngFor="let option of faculties">{{option.name}}</option>
+                        <option value="{{option.id}}" *ngFor="let option of faculties">{{option.name}}</option>
 
                       </select>
                     </div>
             </form>
 
-            <button type="submit" class="btn btn-primary boton boton">Guardar</button>
+            <button (click) = "save()" type="submit" class="btn btn-primary boton boton">Guardar</button>
         </div>
     </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ListFacultyService } from '../../services/list-faculty.service'
 
 @Component({
   selector: 'app-lista-facultad',
@@ -6,27 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lista-facultad.component.scss']
 })
 export class ListaFacultadComponent implements OnInit {
-  Facultad=[
-    {
-      Id: '1',
-      Nombre: 'Ingeniería'
-    },
-    {
-      Id: '2',
-      Nombre:'Derecho'
-    },
-    {
-      Id: '3',
-      Nombre: 'Contaduría'
-    },
-    {
-      Id: '4',
-      Nombre: 'Ciencias'
-    }
-  ]
-  constructor() { }
+  Facultad;
+  constructor(private listFacultyService: ListFacultyService) { }
 
   ngOnInit() {
+    this.listFacultyService.list().subscribe(res => {
+      this.Facultad = res;
+    })
   }
 
 }

@@ -23,5 +23,17 @@ export class ListFacultyService {
     return this.http.post("http://localhost:10010/building/add", model, { responseType: 'text'} )
   }
 
-  
+  saveFaculty = (model) => {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json');
+    return this.http.post("http://localhost:10010/faculty/add", model, { responseType: 'text' })
+  }
+
+  saveLab = (model) => {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json');
+    return this.http.post("http://localhost:10010/lab/add", model, { responseType: 'text' })
+
+  }
+
 }
